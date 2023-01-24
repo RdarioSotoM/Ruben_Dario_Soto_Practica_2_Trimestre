@@ -66,7 +66,17 @@ public class App {
 
                 continue;
                 case 2:
+                    System.out.println("¿Desea registrar una pintura o una escultura? (por favor, escríbalo en minúsculas).");
+                    String tipo;
+                    tipo = consola.nextLine();
+                    if(tipo == "pintura"){
 
+                    }else if(tipo == "escultura"){
+
+                    }else{
+                        System.out.println("La opción introducida no es válida.");
+                        continue;
+                    }
                 case 3:
 
                 case 4:
