@@ -35,6 +35,7 @@ public class App {
             System.out.println("6. Imprimir una etiqueta de una de las obras expuestas.");
             System.out.println("7. Salir");
             eleccion = consola.nextInt();
+            consola.nextLine();
 
             switch(eleccion){
                 case 1:
@@ -67,12 +68,37 @@ public class App {
                 continue;
                 case 2:
                     System.out.println("¿Desea registrar una pintura o una escultura? (por favor, escríbalo en minúsculas).");
-                    String tipo;
-                    tipo = consola.nextLine();
-                    if(tipo == "pintura"){
-
-                    }else if(tipo == "escultura"){
-
+                    String tipo = consola.nextLine();
+                    if(tipo.equals("pintura")){
+                        System.out.println("Asigne un nuevo ID a la obra.");
+                        consola.nextInt();
+                        int id = consola.nextInt();
+                        System.out.println("Asigne un nombre a la obra.");
+                        consola.nextLine();
+                        String nombre = consola.nextLine();
+                        System.out.println("Asigne un autor a la obra.");
+                        consola.nextLine();
+                        String autor = consola.nextLine();
+                        System.out.println("Asigne un tipo de técnica a la obra.");
+                        consola.nextLine();
+                        String tecnica = consola.nextLine();
+                        System.out.println("Asigne un precio a la obra.");
+                        consola.nextDouble();
+                        double precio = consola.nextDouble();
+                        System.out.println("Asigne la altura de la obra.");
+                        consola.nextDouble();
+                        double altura = consola.nextDouble();
+                        System.out.println("Asigne el peso de la obra.");
+                        consola.nextDouble();
+                        double peso = consola.nextDouble();
+                        System.out.println("Asigne el número de piezas de la obra.");
+                        consola.nextInt();
+                        int piezas = consola.nextInt();
+                        System.out.println("Asigne una descipción a la obra.");
+                        consola.nextLine();
+                        String descrp = consola.nextLine();
+                    }else if(tipo.equals("escultura")){
+                        
                     }else{
                         System.out.println("La opción introducida no es válida.");
                         continue;
