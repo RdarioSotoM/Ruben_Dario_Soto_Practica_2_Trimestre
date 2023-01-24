@@ -18,7 +18,8 @@ public class App {
         int contadorPinturas = 4;
         int contadorEsculturas = 1;
 
-        
+        Pintura[] pinturasTotales = {guernica, laVie, elSueño, retratoDeDoraMaar};
+        Escultura[] esculturasTotales = {elPielRoja};
 
         Scanner consola = new Scanner(System.in);
         System.out.println("¿Qué desea hacer?, por favor, escriba solo el numero de la opción a elegir.");
