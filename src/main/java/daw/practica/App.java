@@ -76,6 +76,8 @@ public class App {
                 case 6:
 
                 case 7:
+                System.out.println("Hasta la próxima");
+                    break;
             }
         }
     }
