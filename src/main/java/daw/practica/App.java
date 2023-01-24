@@ -38,7 +38,33 @@ public class App {
 
             switch(eleccion){
                 case 1:
-                    
+                for(int i = 0; i < pinturasTotales.length; i++){
+                    System.out.print(pinturasTotales[i].getId() + " ");
+                    System.out.print(pinturasTotales[i].getNombre() + " ");
+                    System.out.print(pinturasTotales[i].getAutor() + " ");
+                    System.out.print(pinturasTotales[i].getTecnica() + " ");
+                    System.out.print(pinturasTotales[i].getPrecio() + " Euritos ");
+                    System.out.print(pinturasTotales[i].getAltura() + "m ");
+                    System.out.print(pinturasTotales[i].getPeso() + "t ");
+                    System.out.print(pinturasTotales[i].getPiezas() + " ");
+                    System.out.print(pinturasTotales[i].getDescripcion() + " ");
+                    System.out.println("");
+                }
+                
+                for(int i = 0; i < esculturasTotales.length; i++){
+                    System.out.print(esculturasTotales[i].getId() + " ");
+                    System.out.print(esculturasTotales[i].getNombre() + " ");
+                    System.out.print(esculturasTotales[i].getAutor() + " ");
+                    System.out.print(esculturasTotales[i].getMaterial() + " ");
+                    System.out.print(esculturasTotales[i].getPrecio() + " Euritos ");
+                    System.out.print(esculturasTotales[i].getAltura() + "m ");
+                    System.out.print(esculturasTotales[i].getPeso() + "t ");
+                    System.out.print(esculturasTotales[i].getPiezas() + " ");
+                    System.out.print(esculturasTotales[i].getDescripcion() + " ");
+                    System.out.println("");
+                } 
+
+                continue;
                 case 2:
 
                 case 3:
