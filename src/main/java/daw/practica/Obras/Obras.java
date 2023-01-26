@@ -9,7 +9,7 @@ public class Obras {
     private double peso;
     private int piezas;
     private String descripcion;
-    
+
     public Obras(int id, String nombre, String autor, double precio, double altura, double peso, int piezas,
             String descripcion) {
         this.id = id;
@@ -85,4 +85,5 @@ public class Obras {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
 }

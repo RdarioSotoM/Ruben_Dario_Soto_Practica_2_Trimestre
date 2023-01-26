@@ -2,6 +2,7 @@ package daw.practica.Obras;
 
 public class Escultura extends Obras {
     private String material;
+    
 
     public Escultura(int id, String nombre, String autor, double precio, double altura, double peso, int piezas,
             String descripcion, String material) {
