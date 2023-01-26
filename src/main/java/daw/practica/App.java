@@ -1,6 +1,4 @@
 package daw.practica;
-
-import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
 import daw.practica.Obras.Escultura;
@@ -10,24 +8,14 @@ import daw.practica.Obras.Pintura;
 public class App {
     public static void main(String[] args) {
 
-        Pintura guernica = new Pintura(001, "Guernica", "P.Picasso", 1000, 5, 2, 5, "Cuadro guerra civil", "Óleo");
-        Pintura laVie = new Pintura(002, "La Vie", "P.Picasso", 200, 1, 1, 1, "óleo", "Óleo");
-        Pintura elSueño = new Pintura(003, "El Sueño", "P.Picasso", 300, 1.3, 1, 1, "óleo", "Óleo");
-        Pintura retratoDeDoraMaar = new Pintura(004, "Retrato de Dora Maar", "P.Picasso", 400, 1, 0.8, 1, "óleo",
-                "Óleo");
-        Escultura elPielRoja = new Escultura(005, "El Piel Roja", "U. Checa", 350, 1, 0.8, 1, "escultura", "Escultura");
-
-        int contadorPinturas = 4;
-        int contadorEsculturas = 1;
-
-        Pintura[] pinturasTotales = { guernica, laVie, elSueño, retratoDeDoraMaar };
-        Escultura[] esculturasTotales = { elPielRoja };
+        
 
         Scanner consola = new Scanner(System.in);
         System.out.println("¿Qué desea hacer?, por favor, escriba solo el numero de la opción a elegir.");
 
         int eleccion = 0;
-        while (eleccion != 7) {
+        final int numeroDeEleccionesTotales = 7;
+        while (eleccion != numeroDeEleccionesTotales) {
             System.out.println(" ");
             System.out.println("1. Visualizar las obras de arte existentes.");
             System.out.println("2. Dar de alta una nueva obra");
