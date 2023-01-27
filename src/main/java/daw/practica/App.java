@@ -6,11 +6,11 @@ import daw.practica.Metodos.Metodos;
 import daw.practica.Obras.Escultura;
 import daw.practica.Obras.Obras;
 import daw.practica.Obras.Pintura;
+import daw.practica.RegistradorDeObras.RegistradorDeObras;;
 
 public class App {
     public static void main(String[] args) {
         final int VISUALIZAR_LAS_OBRAS = 1;
-
         Scanner consola = new Scanner(System.in);
         Metodos.saludoInicial();
         int eleccion = 0; // Debe ser 0 para iniciar el while.
@@ -22,11 +22,12 @@ public class App {
 
             switch (eleccion) {
                 case VISUALIZAR_LAS_OBRAS:
-                    AlmacenDeObras.lectorDepinturas();
-                    AlmacenDeObras.lectoDeEsculturas();
+                    Metodos.lectorDepinturas();
+                    Metodos.lectoDeEsculturas();
                     continue;
                 case 2:
-                    
+                    RegistradorDeObras.RegistrarUnaNuevaObra();
+                    continue;
                 case 3:
 
                 case 4:
@@ -40,6 +41,5 @@ public class App {
                     break;
             }
         }
-        consola.close();
     }
 }
