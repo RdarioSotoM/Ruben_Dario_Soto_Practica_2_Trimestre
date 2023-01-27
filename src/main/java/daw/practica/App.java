@@ -40,5 +40,6 @@ public class App {
                     break;
             }
         }
+        consola.close();
     }
 }
