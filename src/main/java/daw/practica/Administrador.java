@@ -8,7 +8,7 @@ import daw.practica.Obras.Obras;
 import daw.practica.Obras.Pintura;
 import daw.practica.RegistradorDeObras.RegistradorDeObras;;
 
-public class App {
+public class Administrador {
     public static void main(String[] args) {
         final int VISUALIZAR_LAS_OBRAS = 1;
         Scanner consola = new Scanner(System.in);
@@ -41,5 +41,6 @@ public class App {
                     break;
             }
         }
+        consola.close();
     }
 }
