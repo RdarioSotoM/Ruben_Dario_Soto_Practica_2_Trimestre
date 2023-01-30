@@ -4,7 +4,7 @@ import java.util.Scanner;
 import daw.practica.AlmacenDeObras.AlmacenDeObras;
 
 public class VizualizadorDeObras {
-    public static void VizualizaObras() {
+    public static void VisualizaObras() {
         Scanner consola = new Scanner(System.in);
 
         System.out.println("Escriba el ID de la obra que desea visualizar.");

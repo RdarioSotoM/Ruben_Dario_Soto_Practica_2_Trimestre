@@ -7,7 +7,7 @@ import daw.practica.Obras.Escultura;
 import daw.practica.Obras.Obras;
 import daw.practica.Obras.Pintura;
 import daw.practica.RegistradorDeObras.RegistradorDeObras;
-import daw.practica.VizualizadorDeObras.VizualizadorDeObras;
+import daw.practica.VisualizadorDeObras.VisualizadorDeObras;
 import daw.practica.ModificadorDeObras.ModificadorDeObras;
 
 public class Administrador {
@@ -43,7 +43,7 @@ public class Administrador {
                     ModificadorDeObras.ModificandoObras();
                     continue;
                 case VIZUALIZAR_OBRA_CONCRETA:
-                    VizualizadorDeObras.VizualizaObras();
+                    VisualizadorDeObras.VisualizaObras();
                     continue;
                 case OBTENER_PREVIO_VENTA:
 
