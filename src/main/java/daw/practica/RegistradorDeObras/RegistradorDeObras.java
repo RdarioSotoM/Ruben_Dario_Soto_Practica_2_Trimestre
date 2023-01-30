@@ -89,7 +89,7 @@ public class RegistradorDeObras {
             consola.nextLine();
             String nombre = consola.nextLine();
             System.out.println("Asigne un autor a la obra.");
-            consola.nextLine();
+            String autor = consola.nextLine();
             System.out.println("Asigne un tipo de material a la obra.");
             String material = consola.nextLine();
             System.out.println("Asigne un precio a la obra.");
@@ -113,11 +113,11 @@ public class RegistradorDeObras {
             registroDeIdTemp[registroDeIdTemp.length - 1] = id;
             AlmacenDeObras.setRegistroDeId(registroDeIdTemp);
 
-            Escultura nuevaPintura = new Escultura(id, nombre, nombre, precio, altura, peso, piezas, descrp, material);
-            Escultura[] esculturaTemp = new Escultura[AlmacenDeObras.getEsculturasTotales().length + 1];
+            Escultura nuevaPintura = new Escultura(id, nombre, autor, precio, altura, peso, piezas, descrp, material);
+            Escultura[] esculturaTemp = new Escultura[AlmacenDeObras.getPinturasTotales().length + 1];
 
-            for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
-                esculturaTemp[i] = AlmacenDeObras.getEsculturasTotales()[i];
+            for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
+                esculturaTemp[i] = AlmacenDeObras.getPinturasTotales()[i];
             }
 
             esculturaTemp[esculturaTemp.length - 1] = nuevaPintura;

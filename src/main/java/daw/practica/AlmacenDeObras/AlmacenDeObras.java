@@ -15,7 +15,7 @@ public class AlmacenDeObras {
     static Escultura[] esculturasTotales = { elPielRoja }; 
     static Pintura[] pinturasTotales = { guernica, laVie, elSueño, retratoDeDoraMaar };
 
-    public static Escultura[] getEsculturasTotales() {
+    public static Escultura[] getPinturasTotales() {
         return esculturasTotales;
     }
 
@@ -38,4 +38,6 @@ public class AlmacenDeObras {
     public static void setRegistroDeId(int[] registroDeId) {
         AlmacenDeObras.registroDeId = registroDeId;
     }
+
+    
 }
