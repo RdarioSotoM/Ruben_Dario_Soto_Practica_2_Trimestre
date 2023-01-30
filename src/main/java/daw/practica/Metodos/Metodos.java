@@ -42,6 +42,7 @@ public class Metodos {
     public static void lectoDeEsculturas(){
         for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
             System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getId() + " ");
+            System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getNombre() + " ");
             System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getMaterial() + " ");
             System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getPrecio() + " Euritos ");
             System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getAltura() + "m ");
