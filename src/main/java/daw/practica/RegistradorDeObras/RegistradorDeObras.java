@@ -116,8 +116,8 @@ public class RegistradorDeObras {
             Escultura nuevaPintura = new Escultura(id, nombre, autor, precio, altura, peso, piezas, descrp, material);
             Escultura[] esculturaTemp = new Escultura[AlmacenDeObras.getPinturasTotales().length + 1];
 
-            for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
-                esculturaTemp[i] = AlmacenDeObras.getPinturasTotales()[i];
+            for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
+                esculturaTemp[i] = AlmacenDeObras.getEsculturasTotales()[i];
             }
 
             esculturaTemp[esculturaTemp.length - 1] = nuevaPintura;

@@ -1,6 +1,6 @@
 package daw.practica.Obras;
 
-public class Obras {
+public abstract class Obras {
     private int id;
     private String nombre;
     private String autor;

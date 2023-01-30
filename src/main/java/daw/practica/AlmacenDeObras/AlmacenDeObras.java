@@ -15,16 +15,16 @@ public class AlmacenDeObras {
     static Escultura[] esculturasTotales = { elPielRoja }; 
     static Pintura[] pinturasTotales = { guernica, laVie, elSueño, retratoDeDoraMaar };
 
-    public static Escultura[] getPinturasTotales() {
+    public static Escultura[] getEsculturasTotales() {
         return esculturasTotales;
-    }
-
-    public static void setEsculturasTotales(Escultura[] esculturasTotales) {
-        AlmacenDeObras.esculturasTotales = esculturasTotales;
     }
 
     public static Pintura[] getPinturasTotales() {
         return pinturasTotales;
+    }
+
+    public static void setEsculturasTotales(Escultura[] esculturasTotales) {
+        AlmacenDeObras.esculturasTotales = esculturasTotales;
     }
 
     public static void setPinturasTotales(Pintura[] pinturasTotales) {

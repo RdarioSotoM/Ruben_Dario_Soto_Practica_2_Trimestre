@@ -82,6 +82,8 @@ public class ModificadorDeObras {
                     System.out.println("Se han actualizado los nuevos valores.");
                 }  
             }
+        }else{
+            System.out.println("La opción introducida no es válida");
         }       
     }
 }
