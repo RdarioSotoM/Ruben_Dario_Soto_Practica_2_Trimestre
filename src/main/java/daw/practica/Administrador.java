@@ -6,22 +6,20 @@ import daw.practica.Metodos.Metodos;
 import daw.practica.Obras.Escultura;
 import daw.practica.Obras.Obras;
 import daw.practica.Obras.Pintura;
-import daw.practica.RegistradorDeObras.RegistradorDeObras;
-import daw.practica.VisualizadorDeObras.VisualizadorDeObras;
-import daw.practica.ModificadorDeObras.ModificadorDeObras;
 
 public class Administrador {
+    static final int VISUALIZAR_LAS_OBRAS = 1;
+    static final int DAR_DE_ALTA_UNA_NUEVA_OBRA = 2;
+    static final int MODIFICAR_LOS_DATOS = 3;
+    static final int VIZUALIZAR_OBRA_CONCRETA = 4;
+    static final int OBTENER_PRECIO_VENTA = 5;
+    static final int IMPRIMIR_UNA_ETIQUETA = 6;
+    static final int SALIR = 7;
+
+    static final int NUMERO_DE_ELECCIONES_TOTALES = 7;
+
     public static void main(String[] args) {
-        final int VISUALIZAR_LAS_OBRAS = 1;
-        final int DAR_DE_ALTA_UNA_NUEVA_OBRA = 2;
-        final int MODIFICAR_LOS_DATOS = 3;
-        final int VIZUALIZAR_OBRA_CONCRETA = 4;
-        final int OBTENER_PREVIO_VENTA = 5;
-        final int IMPRIMIR_UNA_ETIQUETA = 6;
-        final int SALIR = 7;
-
-        final int NUMERO_DE_ELECCIONES_TOTALES = 7;
-
+        
         Scanner consola = new Scanner(System.in);
         Metodos.saludoInicial();
         int eleccion = 0; // Debe ser 0 para iniciar el while.
@@ -33,19 +31,19 @@ public class Administrador {
 
             switch (eleccion) {
                 case VISUALIZAR_LAS_OBRAS:
-                    Metodos.lectorDepinturas();
-                    Metodos.lectoDeEsculturas();
+                    AlmacenDeObras.lectorDepinturas();
+                    AlmacenDeObras.lectoDeEsculturas();
                     continue;
                 case DAR_DE_ALTA_UNA_NUEVA_OBRA :
-                    RegistradorDeObras.RegistrarUnaNuevaObra();
+                    AlmacenDeObras.registrarUnaNuevaObra();
                     continue;
                 case MODIFICAR_LOS_DATOS:
-                    ModificadorDeObras.ModificandoObras();
+                    AlmacenDeObras.modificandoObras();
                     continue;
                 case VIZUALIZAR_OBRA_CONCRETA:
-                    VisualizadorDeObras.VisualizaObras();
+                    AlmacenDeObras.visualizaObras();
                     continue;
-                case OBTENER_PREVIO_VENTA:
+                case OBTENER_PRECIO_VENTA:
 
                 case IMPRIMIR_UNA_ETIQUETA:
 
