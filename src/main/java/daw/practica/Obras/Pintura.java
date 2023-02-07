@@ -2,6 +2,7 @@ package daw.practica.Obras;
 
 public class Pintura extends Obras {
     private String tecnica;
+    private double descuento = 0.10;
 
     public Pintura(int id, String nombre, String autor, double precio, double altura, double peso, int piezas,
             String descripcion, String tecnica) {
@@ -15,5 +16,9 @@ public class Pintura extends Obras {
 
     public void setTecnica(String tecnica) {
         this.tecnica = tecnica;
+    }
+
+    public double getDescuento() {
+        return descuento;
     }
 }
