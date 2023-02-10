@@ -38,4 +38,11 @@ public class Escultura extends Obras {
     public double getDescuento() {
         return descuento;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " material: " + material ;
+    }
+
+    
 }

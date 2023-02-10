@@ -21,4 +21,8 @@ public class Pintura extends Obras {
     public double getDescuento() {
         return descuento;
     }
+
+    public String toString() {
+        return super.toString() + " tecnica: " + tecnica ;
+    }
 }

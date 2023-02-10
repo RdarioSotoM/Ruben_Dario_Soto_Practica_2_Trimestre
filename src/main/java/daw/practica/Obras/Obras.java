@@ -86,4 +86,8 @@ public abstract class Obras {
         this.descripcion = descripcion;
     }
 
+    public String toString() {
+        return "ID: " + id + "| nombre: " + nombre + "| autor:" + autor + "| precio (Euros):" + precio + "| altura: "
+                + altura + "| peso: " + peso + "| piezas: " + piezas + "| descripcion: " + descripcion ;
+    }
 }
