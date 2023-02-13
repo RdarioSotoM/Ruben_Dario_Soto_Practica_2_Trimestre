@@ -90,4 +90,9 @@ public abstract class Obras {
         return "ID: " + id + "| nombre: " + nombre + "| autor:" + autor + "| precio (Euros):" + precio + "| altura: "
                 + altura + "| peso: " + peso + "| piezas: " + piezas + "| descripcion: " + descripcion ;
     }
+
+    public String toStringSinID() {
+        return "Nombre: " + nombre + "| autor:" + autor + "| precio (Euros):" + precio + "| altura: "
+                + altura + "| peso: " + peso + "| piezas: " + piezas + "| descripcion: " + descripcion ;
+    }
 }

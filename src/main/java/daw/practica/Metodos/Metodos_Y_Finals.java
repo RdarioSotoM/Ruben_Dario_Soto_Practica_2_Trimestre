@@ -1,7 +1,7 @@
 package daw.practica.Metodos;
 
 
-public class Metodos {
+public class Metodos_Y_Finals {
     
     public static final int VISUALIZAR_LAS_OBRAS = 1;
     public static final int DAR_DE_ALTA_UNA_NUEVA_OBRA = 2;

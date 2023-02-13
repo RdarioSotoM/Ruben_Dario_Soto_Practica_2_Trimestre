@@ -2,7 +2,7 @@ package daw.practica.AlmacenDeObras;
 import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
-import daw.practica.Metodos.Metodos;
+import daw.practica.Metodos.Metodos_Y_Finals;
 import daw.practica.Obras.Escultura;
 import daw.practica.Obras.Pintura;
 
@@ -270,15 +270,7 @@ public class AlmacenDeObras {
 
         for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
             if (AlmacenDeObras.getPinturasTotales()[i].getId() == id) {
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getNombre() + " ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getAutor() + " ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getTecnica() + " ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getPrecio() + " Euritos ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getAltura() + "m ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getPeso() + "t ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getPiezas() + " ");
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].getDescripcion() + " ");
-                System.out.println("");
+                System.out.print(AlmacenDeObras.getPinturasTotales()[i].toStringSinID() + " ");
 
                 System.out.println(" ");
             }
@@ -286,14 +278,7 @@ public class AlmacenDeObras {
 
         for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
             if (AlmacenDeObras.getEsculturasTotales()[i].getId() == id) {
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getNombre() + " ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getMaterial() + " ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getPrecio() + " Euritos ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getAltura() + "m ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getPeso() + "t ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getPiezas() + " ");
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].getDescripcion() + " ");
-                System.out.println("");
+                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].toStringSinID() + " ");
 
                 System.out.println(" ");
             }
@@ -317,26 +302,26 @@ public class AlmacenDeObras {
                 System.out.println("Peso (t) " + AlmacenDeObras.getPinturasTotales()[i].getPeso());
                 System.out.println("Número de piezas: " + AlmacenDeObras.getPinturasTotales()[i].getPiezas());
                 System.out.println("Precio (€) " + AlmacenDeObras.getPinturasTotales()[i].getPrecio());
-                System.out.println("Comisión de la galería: " + Metodos.COMISION_DE_LA_GALERIA);
+                System.out.println("Comisión de la galería: " + Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
 
                 if(AlmacenDeObras.getPinturasTotales()[i].getPeso() > 1 ){
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_PESO_MAX);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MAX);
                 }else{
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_PESO_MIN);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MIN);
                 }
                 if(AlmacenDeObras.getPinturasTotales()[i].getAltura() > 2 ){
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por altura: " + Metodos.COMISION_ALTURA_MAX);
+                    System.out.println("Importe por altura: " + Metodos_Y_Finals.COMISION_ALTURA_MAX);
                 }else{
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por altura: " + Metodos.COMISION_ALTURA_MIN);
+                    System.out.println("Importe por altura: " + Metodos_Y_Finals.COMISION_ALTURA_MIN);
                 }
                 if(AlmacenDeObras.getPinturasTotales()[i].getPiezas() > 2 ){
                     precioDeVentafinal = precioDeVentafinal + ((AlmacenDeObras.getPinturasTotales()[i].getPiezas() - 2) * 10);
                     for(int j = 3; j <= AlmacenDeObras.getPinturasTotales()[i].getPiezas(); j++){
-                        System.out.println("Importe adicional - Pieza " + j + " (euros): " + Metodos.PIEZA_ADICIONAL);
+                        System.out.println("Importe adicional - Pieza " + j + " (euros): " + Metodos_Y_Finals.PIEZA_ADICIONAL);
                     }
                 }
 
@@ -358,26 +343,26 @@ public class AlmacenDeObras {
                 System.out.println("Peso (t) " + AlmacenDeObras.getEsculturasTotales()[i].getPeso());
                 System.out.println("Número de piezas: " + AlmacenDeObras.getEsculturasTotales()[i].getPiezas());
                 System.out.println("Precio (€) " + AlmacenDeObras.getEsculturasTotales()[i].getPrecio());
-                System.out.println("Comisión de la galería: " + Metodos.COMISION_DE_LA_GALERIA);
+                System.out.println("Comisión de la galería: " + Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
 
                 if(AlmacenDeObras.getEsculturasTotales()[i].getPeso() > 1 ){
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_PESO_MAX);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MAX);
                 }else{
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_PESO_MIN);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MIN);
                 }
                 if(AlmacenDeObras.getEsculturasTotales()[i].getAltura() > 2 ){
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_ALTURA_MAX);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_ALTURA_MAX);
                 }else{
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos.COMISION_ALTURA_MIN);
+                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_ALTURA_MIN);
                 }
                 if(AlmacenDeObras.getEsculturasTotales()[i].getPiezas() > 2 ){
                     precioDeVentafinal = precioDeVentafinal + ((AlmacenDeObras.getEsculturasTotales()[i].getPiezas() - 2) * 10);
                     for(int j = 3; j <= AlmacenDeObras.getEsculturasTotales()[i].getPiezas(); j++){
-                        System.out.println("Importe adicional - Pieza " + j + " (€): " + Metodos.PIEZA_ADICIONAL);
+                        System.out.println("Importe adicional - Pieza " + j + " (€): " + Metodos_Y_Finals.PIEZA_ADICIONAL);
                     }
                 }
                 System.out.println("Precio de venta (euros): " + precioDeVentafinal );

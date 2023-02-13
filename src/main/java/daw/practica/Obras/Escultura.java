@@ -39,10 +39,11 @@ public class Escultura extends Obras {
         return descuento;
     }
 
-    @Override
     public String toString() {
-        return super.toString() + " material: " + material ;
+        return super.toString() + "| material: " + material ;
     }
 
-    
+    public String toStringSinID() {
+        return super.toStringSinID() + "| material: " + material ;
+    }
 }
