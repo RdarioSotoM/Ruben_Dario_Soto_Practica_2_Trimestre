@@ -92,7 +92,11 @@ public abstract class Obras {
     }
 
     public String toStringSinID() {
-        return "Nombre: " + nombre + "| autor:" + autor + "| precio (Euros):" + precio + "| altura: "
-                + altura + "| peso: " + peso + "| piezas: " + piezas + "| descripcion: " + descripcion ;
+        return "Nombre: " + nombre + " | Autor:" + autor + " | Precio (Euros):" + precio + " | Altura: "
+                + altura + " | Peso: " + peso + " | Piezas: " + piezas + " | Descripcion: " + descripcion ;
+    }
+
+    public String toStringEtiqueta() {
+        return "Nombre: " + nombre + " | Autor:" + autor + " | Descripcion: " + descripcion ;
     }
 }

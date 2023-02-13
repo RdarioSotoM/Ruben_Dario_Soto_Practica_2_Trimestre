@@ -33,7 +33,8 @@ public class Administrador {
                     AlmacenDeObras.precioDeVenta();
                     continue;
                 case Metodos_Y_Finals.IMPRIMIR_UNA_ETIQUETA:
-
+                    AlmacenDeObras.etiqueta();
+                    continue;
                 case Metodos_Y_Finals.SALIR:
                     Metodos_Y_Finals.despedidaFinal();
                     break;

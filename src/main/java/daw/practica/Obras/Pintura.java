@@ -23,10 +23,14 @@ public class Pintura extends Obras {
     }
 
     public String toString() {
-        return super.toString() + "|tecnica: " + tecnica ;
+        return super.toString() + " | Tecnica: " + tecnica ;
     }
 
     public String toStringSinID() {
-        return super.toStringSinID() + "|tecnica: " + tecnica ;
+        return super.toStringSinID() + " | Tecnica: " + tecnica ;
+    }
+
+    public String toStringEtiqueta(){
+        return super.toStringEtiqueta();
     }
 }

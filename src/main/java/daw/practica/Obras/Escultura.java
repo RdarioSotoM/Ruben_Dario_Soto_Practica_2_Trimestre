@@ -40,10 +40,14 @@ public class Escultura extends Obras {
     }
 
     public String toString() {
-        return super.toString() + "| material: " + material ;
+        return super.toString() + " | Material: " + material ;
     }
 
     public String toStringSinID() {
-        return super.toStringSinID() + "| material: " + material ;
+        return super.toStringSinID() + " | Material: " + material ;
+    }
+
+    public String toStringEtiqueta(){
+        return super.toStringEtiqueta();
     }
 }
