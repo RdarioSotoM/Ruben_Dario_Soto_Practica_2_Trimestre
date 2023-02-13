@@ -15,6 +15,14 @@ public class Administrador {
             eleccion = consola.nextInt();
             consola.nextLine();
 
+            if(eleccion < 1){
+                System.out.println("Esa opción no corresponde a ninguna de las dadas.");
+                continue;
+            }else if(eleccion > 7){
+                System.out.println("Esa opción no corresponde a ninguna de las dadas.");
+                continue;
+            }
+
             switch (eleccion) {
                 case Metodos_Y_Finals.VISUALIZAR_LAS_OBRAS:
                     AlmacenDeObras.lectorDepinturas();
