@@ -6,9 +6,9 @@ import daw.practica.AlmacenDeObras.AlmacenDeObras;
 import daw.practica.Metodos.Metodos_Y_Finals;
 
 public class Administrador {
+    public static Scanner consola = new Scanner(System.in);
     public static void main(String[] args) {
 
-        Scanner consola = new Scanner(System.in);
         Metodos_Y_Finals.saludoInicial();
         int eleccion = 0; // Debe ser 0 para iniciar el while.
 
@@ -25,14 +25,13 @@ public class Administrador {
 
             switch (eleccion) {
                 case Metodos_Y_Finals.VISUALIZAR_LAS_OBRAS:
-                    AlmacenDeObras.lectorDepinturas();
-                    AlmacenDeObras.lectoDeEsculturas();
+                    AlmacenDeObras.lectorDeObras();
                     continue;
                 case Metodos_Y_Finals.DAR_DE_ALTA_UNA_NUEVA_OBRA:
-                    AlmacenDeObras.registrarUnaNuevaObra();
+                    AlmacenDeObras.registrandoDatos();
                     continue;
                 case Metodos_Y_Finals.MODIFICAR_LOS_DATOS:
-                    AlmacenDeObras.modificandoObras();
+                    /*AlmacenDeObras.modificandoObras();
                     continue;
                 case Metodos_Y_Finals.VIZUALIZAR_OBRA_CONCRETA:
                     AlmacenDeObras.visualizaObras();
@@ -42,7 +41,7 @@ public class Administrador {
                     continue;
                 case Metodos_Y_Finals.IMPRIMIR_UNA_ETIQUETA:
                     AlmacenDeObras.etiqueta();
-                    continue;
+                    continue;*/
                 case Metodos_Y_Finals.SALIR:
                     Metodos_Y_Finals.despedidaFinal();
                     break;

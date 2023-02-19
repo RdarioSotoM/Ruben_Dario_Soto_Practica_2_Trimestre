@@ -21,7 +21,7 @@ public class Metodos_Y_Finals {
     public static void saludoInicial(){
     System.out.println("¿Qué desea hacer?, por favor, escriba solo el numero de la opción a elegir.");
     }
-
+    
     public static void listaDeOpcionesAElegir(){
         System.out.println(" ");
         System.out.println("1. Visualizar las obras de arte existentes.");
