@@ -43,7 +43,8 @@ public class AlmacenDeObras {
         }
     }
 
-    public static void registrarUnaNuevaEscultura(int id, String nombre, String autor, double precio, double altura, double peso,
+    public static void registrarUnaNuevaEscultura(int id, String nombre, String autor, double precio, double altura,
+            double peso,
             int piezas, String descripcion, String material) {
 
         int[] registroDeIdTemp = new int[AlmacenDeObras.getRegistroDeId().length + 1];
@@ -54,7 +55,8 @@ public class AlmacenDeObras {
         registroDeIdTemp[registroDeIdTemp.length - 1] = id;
         AlmacenDeObras.setRegistroDeId(registroDeIdTemp);
 
-        Escultura nuevaEscultura = new Escultura(id, nombre, autor, precio, altura, peso, piezas, descripcion, material);
+        Escultura nuevaEscultura = new Escultura(id, nombre, autor, precio, altura, peso, piezas, descripcion,
+                material);
         Obras[] obrasTemp = new Obras[AlmacenDeObras.getObrasTotales().length + 1];
 
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
@@ -66,7 +68,8 @@ public class AlmacenDeObras {
         System.out.println("La nueva obra ha sido registrada con exito.");
     }
 
-    public static void registrarUnaNuevaPintura(int id, String nombre, String autor, double precio, double altura, double peso,
+    public static void registrarUnaNuevaPintura(int id, String nombre, String autor, double precio, double altura,
+            double peso,
             int piezas, String descripcion, String tecnica) {
 
         int[] registroDeIdTemp = new int[AlmacenDeObras.getRegistroDeId().length + 1];
@@ -132,9 +135,9 @@ public class AlmacenDeObras {
 
             System.out.println("Registrando la nueva obra, por favor espere...");
 
-            registrarUnaNuevaPintura(id, nombre, autor, precio, altura, peso, piezas,  descripcion, tecnica);
+            registrarUnaNuevaPintura(id, nombre, autor, precio, altura, peso, piezas, descripcion, tecnica);
 
-        }else if(tipo.equals("escultura")){
+        } else if (tipo.equals("escultura")) {
             int id;
             while (true) {
                 System.out.println("Asigne un nuevo ID a la obra.");
@@ -168,235 +171,184 @@ public class AlmacenDeObras {
             int piezas = Administrador.consola.nextInt();
             System.out.println("Asigne una descipción a la obra.");
             String descripcion = Administrador.consola.nextLine();
-    
+
             System.out.println("Registrando la nueva obra, por favor espere...");
             registrarUnaNuevaEscultura(id, nombre, autor, precio, altura, peso, piezas, descripcion, material);
 
-        }else{
+        } else {
             System.out.println("La opción introducida no es válida.");
         }
 
     }
-    /* 
-    public static void modificandoObras() {
-        System.out.println("Desea modificar una escultura o una pintura. (Por favor, escríbalo en minúsculas.");
-        String tipo = Administrador.consola.nextLine();
 
-        if (tipo.equals("pintura")) {
-            System.out.println("Escriba el ID de la pintura que desea modificar.");
-            int id = Administrador.consola.nextInt();
-            for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
-                if (AlmacenDeObras.getPinturasTotales()[i].getId() == id) {
-                    System.out.println("Asigne un nuevo ID a la obra.");
-                    id = Administrador.consola.nextInt();
-                    AlmacenDeObras.getPinturasTotales()[i].setId(id);
-                    System.out.println("Asigne un nombre a la obra.");
-                    Administrador.consola.nextLine();
-                    String nombre = Administrador.consola.nextLine();
-                    AlmacenDeObras.getPinturasTotales()[i].setNombre(nombre);
-                    System.out.println("Asigne un autor a la obra.");
-                    String autor = Administrador.consola.nextLine();
-                    AlmacenDeObras.getPinturasTotales()[i].setAutor(autor);
-                    System.out.println("Asigne un tipo de técnica a la obra.");
-                    String tecnica = Administrador.consola.nextLine();
-                    AlmacenDeObras.getPinturasTotales()[i].setTecnica(tecnica);
-                    System.out.println("Asigne un precio a la obra.");
-                    double precio = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getPinturasTotales()[i].setPrecio(precio);
-                    System.out.println("Asigne la altura de la obra.");
-                    double altura = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getPinturasTotales()[i].setAltura(altura);
-                    System.out.println("Asigne el peso de la obra.");
-                    double peso = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getPinturasTotales()[i].setPeso(peso);
-                    System.out.println("Asigne el número de piezas de la obra.");
-                    int piezas = Administrador.consola.nextInt();
-                    AlmacenDeObras.getPinturasTotales()[i].setPiezas(piezas);
-                    System.out.println("Asigne una descipción a la obra.");
-                    String descrp = Administrador.consola.nextLine();
-                    AlmacenDeObras.getPinturasTotales()[i].setDescripcion(descrp);
-
-                    System.out.println("Se han actualizado los nuevos valores.");
+    public static void modificandoObras(int id, String nombre, String autor, double precio, double altura,
+            double peso,
+            int piezas, String descripcion, String tecnica, String material) {
+        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
+            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
+                AlmacenDeObras.getObrasTotales()[i].setId(id);
+                AlmacenDeObras.getObrasTotales()[i].setNombre(nombre);
+                AlmacenDeObras.getObrasTotales()[i].setAutor(autor);
+                AlmacenDeObras.getObrasTotales()[i].setPrecio(precio);
+                AlmacenDeObras.getObrasTotales()[i].setAltura(altura);
+                AlmacenDeObras.getObrasTotales()[i].setPeso(peso);
+                AlmacenDeObras.getObrasTotales()[i].setPiezas(piezas);
+                AlmacenDeObras.getObrasTotales()[i].setDescripcion(descripcion);
+                if (AlmacenDeObras.getObrasTotales()[i] instanceof Pintura) {
+                    Pintura pinturatemp = (Pintura) AlmacenDeObras.getObrasTotales()[i];
+                    pinturatemp.setTecnica(tecnica);
+                    AlmacenDeObras.getObrasTotales()[i] = pinturatemp;
+                } else {
+                    Escultura esculturatemp = (Escultura) AlmacenDeObras.getObrasTotales()[i];
+                    esculturatemp.setMaterial(material);
+                    AlmacenDeObras.getObrasTotales()[i] = esculturatemp;
                 }
             }
-        } else if (tipo.equals("escultura")) {
-            System.out.println("Escriba el ID de la escultura que desea modificar.");
-            int id = Administrador.consola.nextInt();
-            for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
-                if (AlmacenDeObras.getEsculturasTotales()[i].getId() == id) {
-                    System.out.println("Asigne un nuevo ID a la obra.");
-                    id = Administrador.consola.nextInt();
-                    AlmacenDeObras.getEsculturasTotales()[i].setId(id);
-                    System.out.println("Asigne un nombre a la obra.");
-                    Administrador.consola.nextLine();
-                    String nombre = Administrador.consola.nextLine();
-                    AlmacenDeObras.getEsculturasTotales()[i].setNombre(nombre);
-                    System.out.println("Asigne un autor a la obra.");
-                    String autor = Administrador.consola.nextLine();
-                    AlmacenDeObras.getEsculturasTotales()[i].setAutor(autor);
-                    System.out.println("Asigne un tipo de material a la obra.");
-                    String material = Administrador.consola.nextLine();
-                    AlmacenDeObras.getEsculturasTotales()[i].setMaterial(material);
-                    System.out.println("Asigne un precio a la obra.");
-                    double precio = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getEsculturasTotales()[i].setPrecio(precio);
-                    System.out.println("Asigne la altura de la obra.");
-                    double altura = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getEsculturasTotales()[i].setAltura(altura);
-                    System.out.println("Asigne el peso de la obra.");
-                    double peso = Administrador.consola.nextDouble();
-                    AlmacenDeObras.getEsculturasTotales()[i].setPeso(peso);
-                    System.out.println("Asigne el número de piezas de la obra.");
-                    int piezas = Administrador.consola.nextInt();
-                    AlmacenDeObras.getEsculturasTotales()[i].setPiezas(piezas);
-                    System.out.println("Asigne una descipción a la obra.");
-                    String descrp = Administrador.consola.nextLine();
-                    AlmacenDeObras.getEsculturasTotales()[i].setDescripcion(descrp);
-
-                    System.out.println("Se han actualizado los nuevos valores.");
-                }
-            }
-        } else {
-            System.out.println("La opción introducida no es válida");
         }
     }
 
-    public static void visualizaObras() {
+    public static void selectorDeNuevosDatos() {
+        System.out.println("Escriba el ID de la obra que desea modificar.");
+        int id = Administrador.consola.nextInt();
+        Administrador.consola.nextLine();
 
+        System.out.println("Asigne un nombre a la obra.");
+        String nombre = Administrador.consola.nextLine();
+
+        System.out.println("Asigne un autor a la obra.");
+        String autor = Administrador.consola.nextLine();
+
+        System.out.println("Asigne un precio a la obra.");
+        double precio = Administrador.consola.nextDouble();
+
+        System.out.println("Asigne la altura de la obra.");
+        double altura = Administrador.consola.nextDouble();
+
+        System.out.println("Asigne el peso de la obra.");
+        double peso = Administrador.consola.nextDouble();
+
+        System.out.println("Asigne el número de piezas de la obra.");
+        int piezas = Administrador.consola.nextInt();
+        Administrador.consola.nextLine();
+
+        System.out.println("Asigne una descipción a la obra.");
+        String descrp = Administrador.consola.nextLine();
+
+        System.out.println("Asigne un tipo de técnica a la obra (si es necesario).");
+        String tecnica = Administrador.consola.nextLine();
+
+        System.out.println("Asigne un tipo de material a la obra (si es necesario).");
+        String material = Administrador.consola.nextLine();
+
+        modificandoObras(id, nombre, autor, precio, altura, peso, piezas, descrp, tecnica, material);
+        System.out.println("La obra ha sido modificada con éxito.");
+    }
+
+    public static int selectorDeID() {
         System.out.println("Escriba el ID de la obra que desea visualizar.");
         int id = Administrador.consola.nextInt();
+        return id;
+    }
 
-        for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
-            if (AlmacenDeObras.getPinturasTotales()[i].getId() == id) {
-                System.out.print(AlmacenDeObras.getPinturasTotales()[i].toStringSinID() + " ");
-
-                System.out.println(" ");
-            }
-        }
-
-        for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
-            if (AlmacenDeObras.getEsculturasTotales()[i].getId() == id) {
-                System.out.print(AlmacenDeObras.getEsculturasTotales()[i].toStringSinID() + " ");
+    public static void visualizaObras(int id) {
+        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
+            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
+                System.out.print(AlmacenDeObras.getObrasTotales()[i].toStringSinID() +
+                        " ");
 
                 System.out.println(" ");
             }
         }
     }
 
-
-    public static void precioDeVenta() {
-
-        System.out.println("Escriba el ID de la obra la cual desea obtener el precio de venta.");
-        int id = Administrador.consola.nextInt();
+    public static void precioDeVenta(int id) {
         final double COMISION_DE_LA_GALERIA = 0.25;
 
-        for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
-            if (AlmacenDeObras.getPinturasTotales()[i].getId() == id) {
-                double precioDeVentafinal = AlmacenDeObras.getPinturasTotales()[i].getPrecio()
-                    + (AlmacenDeObras.getPinturasTotales()[i].getPrecio() * COMISION_DE_LA_GALERIA);
-                System.out.println("Nombre: " + AlmacenDeObras.getPinturasTotales()[i].getNombre());
-                System.out.println("Altura (m): " + AlmacenDeObras.getPinturasTotales()[i].getAltura());
-                System.out.println("Peso (t) " + AlmacenDeObras.getPinturasTotales()[i].getPeso());
-                System.out.println("Número de piezas: " + AlmacenDeObras.getPinturasTotales()[i].getPiezas());
-                System.out.println("Precio (€) " + AlmacenDeObras.getPinturasTotales()[i].getPrecio());
-                System.out.println("Comisión de la galería: " + Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
+        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
+            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
+                double precioDeVentafinal = AlmacenDeObras.getObrasTotales()[i].getPrecio()
+                        + (AlmacenDeObras.getObrasTotales()[i].getPrecio() *
+                                COMISION_DE_LA_GALERIA);
+                System.out.println("Nombre: " +
+                        AlmacenDeObras.getObrasTotales()[i].getNombre());
+                System.out.println("Altura (m): " +
+                        AlmacenDeObras.getObrasTotales()[i].getAltura());
+                System.out.println("Peso (t) " +
+                        AlmacenDeObras.getObrasTotales()[i].getPeso());
+                System.out.println("Número de piezas: " +
+                        AlmacenDeObras.getObrasTotales()[i].getPiezas());
+                System.out.println("Precio (€) " +
+                        AlmacenDeObras.getObrasTotales()[i].getPrecio());
+                System.out.println("Comisión de la galería: " +
+                        Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
 
-                if (AlmacenDeObras.getPinturasTotales()[i].getPeso() > 1) {
+                if (AlmacenDeObras.getObrasTotales()[i].getPeso() > 1) {
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MAX);
+                    System.out.println("Importe por peso: " +
+                            Metodos_Y_Finals.COMISION_PESO_MAX);
                 } else {
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MIN);
+                    System.out.println("Importe por peso: " +
+                            Metodos_Y_Finals.COMISION_PESO_MIN);
                 }
-                if (AlmacenDeObras.getPinturasTotales()[i].getAltura() > 2) {
+                if (AlmacenDeObras.getObrasTotales()[i].getAltura() > 2) {
                     precioDeVentafinal += 100;
-                    System.out.println("Importe por altura: " + Metodos_Y_Finals.COMISION_ALTURA_MAX);
+                    System.out.println("Importe por altura: " +
+                            Metodos_Y_Finals.COMISION_ALTURA_MAX);
                 } else {
                     precioDeVentafinal += 20;
-                    System.out.println("Importe por altura: " + Metodos_Y_Finals.COMISION_ALTURA_MIN);
+                    System.out.println("Importe por altura: " +
+                            Metodos_Y_Finals.COMISION_ALTURA_MIN);
                 }
-                if (AlmacenDeObras.getPinturasTotales()[i].getPiezas() > 2) {
+                if (AlmacenDeObras.getObrasTotales()[i].getPiezas() > 2) {
                     precioDeVentafinal = precioDeVentafinal
-                            + ((AlmacenDeObras.getPinturasTotales()[i].getPiezas() - 2) * 10);
-                    for (int j = 3; j <= AlmacenDeObras.getPinturasTotales()[i].getPiezas(); j++) {
+                            + ((AlmacenDeObras.getObrasTotales()[i].getPiezas() - 2) * 10);
+                    for (int j = 3; j <= AlmacenDeObras.getObrasTotales()[i].getPiezas(); j++) {
                         System.out.println(
-                                "Importe adicional - Pieza " + j + " (euros): " + Metodos_Y_Finals.PIEZA_ADICIONAL);
+                                "Importe adicional - Pieza " + j + " (euros): " +
+                                        Metodos_Y_Finals.PIEZA_ADICIONAL);
                     }
                 }
 
-                System.out.println("Precio de venta (euros): " + precioDeVentafinal);
-                precioDeVentafinal = precioDeVentafinal
-                        - (precioDeVentafinal * AlmacenDeObras.getPinturasTotales()[i].getDescuento());
-                System.out.println("Descuento: (10% óleo (euros))"
-                        + precioDeVentafinal * AlmacenDeObras.getPinturasTotales()[i].getDescuento());
+                if (AlmacenDeObras.getObrasTotales()[i] instanceof Pintura) {
+                    Pintura pinturatemp = (Pintura) AlmacenDeObras.getObrasTotales()[i];
+
+                    System.out.println("Precio de venta (euros): " + precioDeVentafinal);
+                    precioDeVentafinal = precioDeVentafinal
+                            - (precioDeVentafinal *
+                                    pinturatemp.getDescuento());
+                    System.out.println("Descuento: (10% óleo (euros))"
+                            + precioDeVentafinal *
+                                    pinturatemp.getDescuento());
+                } else {
+                    Escultura esculturatemp = (Escultura) AlmacenDeObras.getObrasTotales()[i];
+                    System.out.println("Precio de venta (euros): " + precioDeVentafinal);
+                    precioDeVentafinal = precioDeVentafinal
+                            - (precioDeVentafinal *
+                                    esculturatemp.getDescuento());
+                    System.out.println("Descuento: (20% escultura (euros))"
+                            + precioDeVentafinal *
+                                    esculturatemp.getDescuento());
+                    precioDeVentafinal += esculturatemp.getManipulacion();
+                }
+
                 precioDeVentafinal = precioDeVentafinal * 0.99;
 
-                System.out.println("El precio final de esta obra es de " + precioDeVentafinal + " dólares.");
+                System.out.println("El precio final de esta obra es de " + precioDeVentafinal
+                        + " dólares.");
             }
             System.out.println(" ");
         }
 
-        for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
-            if (AlmacenDeObras.getEsculturasTotales()[i].getId() == id) {
-                double precioDeVentafinal = AlmacenDeObras.getEsculturasTotales()[i].getPrecio()
-                + (AlmacenDeObras.getEsculturasTotales()[i].getPrecio() * COMISION_DE_LA_GALERIA);
-                System.out.println("Altura (m): " + AlmacenDeObras.getEsculturasTotales()[i].getAltura());
-                System.out.println("Peso (t) " + AlmacenDeObras.getEsculturasTotales()[i].getPeso());
-                System.out.println("Número de piezas: " + AlmacenDeObras.getEsculturasTotales()[i].getPiezas());
-                System.out.println("Precio (€) " + AlmacenDeObras.getEsculturasTotales()[i].getPrecio());
-                System.out.println("Comisión de la galería: " + Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
+    }
 
-                if (AlmacenDeObras.getEsculturasTotales()[i].getPeso() > 1) {
-                    precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MAX);
-                } else {
-                    precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_PESO_MIN);
-                }
-                if (AlmacenDeObras.getEsculturasTotales()[i].getAltura() > 2) {
-                    precioDeVentafinal += 100;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_ALTURA_MAX);
-                } else {
-                    precioDeVentafinal += 20;
-                    System.out.println("Importe por peso: " + Metodos_Y_Finals.COMISION_ALTURA_MIN);
-                }
-                if (AlmacenDeObras.getEsculturasTotales()[i].getPiezas() > 2) {
-                    precioDeVentafinal = precioDeVentafinal
-                            + ((AlmacenDeObras.getEsculturasTotales()[i].getPiezas() - 2) * 10);
-                    for (int j = 3; j <= AlmacenDeObras.getEsculturasTotales()[i].getPiezas(); j++) {
-                        System.out.println(
-                                "Importe adicional - Pieza " + j + " (€): " + Metodos_Y_Finals.PIEZA_ADICIONAL);
-                    }
-                }
-                System.out.println("Precio de venta (euros): " + precioDeVentafinal);
-                precioDeVentafinal = precioDeVentafinal
-                        - (precioDeVentafinal * AlmacenDeObras.getEsculturasTotales()[i].getDescuento());
-                System.out.println("Descuento: (20% escultura (euros))"
-                        + precioDeVentafinal * AlmacenDeObras.getEsculturasTotales()[i].getDescuento());
-                precioDeVentafinal += AlmacenDeObras.getEsculturasTotales()[i].getManipulacion();
-                precioDeVentafinal = precioDeVentafinal * 0.99;
+    public static void etiqueta(int id) {
 
-                System.out.println("El precio final de esta obra es de " + precioDeVentafinal + " dólares.");
+        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
+            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
+                System.out.println(AlmacenDeObras.getObrasTotales()[i].toStringEtiqueta());
             }
-            System.out.println(" ");
         }
     }
 
-    public static void etiqueta(){
-
-        System.out.println("Escriba el ID de la obra la cual desea obtener el precio de venta.");
-        int id = Administrador.consola.nextInt();
-
-        for (int i = 0; i < AlmacenDeObras.getPinturasTotales().length; i++) {
-            if (AlmacenDeObras.getPinturasTotales()[i].getId() == id) {
-                System.out.println(AlmacenDeObras.getPinturasTotales()[i].toStringEtiqueta());
-            }
-        }
-
-        for (int i = 0; i < AlmacenDeObras.getEsculturasTotales().length; i++) {
-            if (AlmacenDeObras.getEsculturasTotales()[i].getId() == id) {
-                System.out.println(AlmacenDeObras.getEsculturasTotales()[i].toStringEtiqueta());
-            }
-        }
-    }*/
 }

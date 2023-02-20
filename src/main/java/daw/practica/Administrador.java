@@ -7,10 +7,12 @@ import daw.practica.Metodos.Metodos_Y_Finals;
 
 public class Administrador {
     public static Scanner consola = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         Metodos_Y_Finals.saludoInicial();
         int eleccion = 0; // Debe ser 0 para iniciar el while.
+        int id;
 
         while (eleccion != Metodos_Y_Finals.NUMERO_DE_ELECCIONES_TOTALES) {
             try {
@@ -31,17 +33,22 @@ public class Administrador {
                     AlmacenDeObras.registrandoDatos();
                     continue;
                 case Metodos_Y_Finals.MODIFICAR_LOS_DATOS:
-                    /*AlmacenDeObras.modificandoObras();
+                    AlmacenDeObras.selectorDeNuevosDatos();
                     continue;
+
                 case Metodos_Y_Finals.VIZUALIZAR_OBRA_CONCRETA:
-                    AlmacenDeObras.visualizaObras();
+                    id = AlmacenDeObras.selectorDeID();
+                    AlmacenDeObras.visualizaObras(id);
                     continue;
+
                 case Metodos_Y_Finals.OBTENER_PRECIO_VENTA:
-                    AlmacenDeObras.precioDeVenta();
+                    id = AlmacenDeObras.selectorDeID();
+                    AlmacenDeObras.precioDeVenta(id);
                     continue;
                 case Metodos_Y_Finals.IMPRIMIR_UNA_ETIQUETA:
-                    AlmacenDeObras.etiqueta();
-                    continue;*/
+                    id = AlmacenDeObras.selectorDeID();
+                    AlmacenDeObras.etiqueta(id);
+                    continue;
                 case Metodos_Y_Finals.SALIR:
                     Metodos_Y_Finals.despedidaFinal();
                     break;
