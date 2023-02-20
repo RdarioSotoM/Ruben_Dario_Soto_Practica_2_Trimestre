@@ -38,7 +38,7 @@ public class Administrador {
 
                 case Metodos_Y_Finals.VIZUALIZAR_OBRA_CONCRETA:
                     id = AlmacenDeObras.selectorDeID();
-                    AlmacenDeObras.visualizaObras(id);
+                    System.out.println(AlmacenDeObras.visualizaObras(id));
                     continue;
 
                 case Metodos_Y_Finals.OBTENER_PRECIO_VENTA:
@@ -47,7 +47,7 @@ public class Administrador {
                     continue;
                 case Metodos_Y_Finals.IMPRIMIR_UNA_ETIQUETA:
                     id = AlmacenDeObras.selectorDeID();
-                    AlmacenDeObras.etiqueta(id);
+                    System.out.println(AlmacenDeObras.etiqueta(id));
                     continue;
                 case Metodos_Y_Finals.SALIR:
                     Metodos_Y_Finals.despedidaFinal();

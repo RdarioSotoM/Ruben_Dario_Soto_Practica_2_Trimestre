@@ -1,5 +1,7 @@
 package daw.practica.AlmacenDeObras;
 
+import javax.sound.sampled.SourceDataLine;
+
 import daw.practica.Administrador;
 import daw.practica.Metodos.Metodos_Y_Finals;
 import daw.practica.Obras.Escultura;
@@ -38,8 +40,6 @@ public class AlmacenDeObras {
     public static void lectorDeObras() {
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
             System.out.print(AlmacenDeObras.getObrasTotales()[i].toString() + " ");
-
-            System.out.println("");
         }
     }
 
@@ -250,15 +250,13 @@ public class AlmacenDeObras {
         return id;
     }
 
-    public static void visualizaObras(int id) {
+    public static String visualizaObras(int id) {
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
             if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
-                System.out.print(AlmacenDeObras.getObrasTotales()[i].toStringSinID() +
-                        " ");
-
-                System.out.println(" ");
+                return AlmacenDeObras.getObrasTotales()[i].toStringSinID();
             }
         }
+        return null;
     }
 
     public static void precioDeVenta(int id) {
@@ -342,13 +340,14 @@ public class AlmacenDeObras {
 
     }
 
-    public static void etiqueta(int id) {
+    public static String etiqueta(int id) {
 
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
             if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
-                System.out.println(AlmacenDeObras.getObrasTotales()[i].toStringEtiqueta());
+                return AlmacenDeObras.getObrasTotales()[i].toStringEtiqueta();
             }
         }
+        return null;
     }
 
 }

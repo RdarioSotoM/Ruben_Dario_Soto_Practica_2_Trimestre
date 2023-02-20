@@ -97,6 +97,6 @@ public abstract class Obras {
     }
 
     public String toStringEtiqueta() {
-        return "Nombre: " + nombre + " | Autor:" + autor + " | Descripcion: " + descripcion ;
+        return "Nombre: " + nombre + " | Autor: " + autor + " | Descripcion: " + descripcion ;
     }
 }
