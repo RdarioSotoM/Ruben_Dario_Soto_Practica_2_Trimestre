@@ -29,9 +29,11 @@ public class Administrador {
                 case Metodos_Y_Finals.VISUALIZAR_LAS_OBRAS:
                     AlmacenDeObras.lectorDeObras();
                     continue;
+
                 case Metodos_Y_Finals.DAR_DE_ALTA_UNA_NUEVA_OBRA:
                     AlmacenDeObras.registrandoDatos();
                     continue;
+
                 case Metodos_Y_Finals.MODIFICAR_LOS_DATOS:
                     AlmacenDeObras.selectorDeNuevosDatos();
                     continue;
@@ -45,13 +47,16 @@ public class Administrador {
                     id = AlmacenDeObras.selectorDeID();
                     AlmacenDeObras.precioDeVenta(id);
                     continue;
+
                 case Metodos_Y_Finals.IMPRIMIR_UNA_ETIQUETA:
                     id = AlmacenDeObras.selectorDeID();
                     System.out.println(AlmacenDeObras.etiqueta(id));
                     continue;
+
                 case Metodos_Y_Finals.SALIR:
                     Metodos_Y_Finals.despedidaFinal();
                     break;
+                    
                 default:
                     System.out.println("La opción elegida no corresponde con ninguna de las indicadas.");
                     break;

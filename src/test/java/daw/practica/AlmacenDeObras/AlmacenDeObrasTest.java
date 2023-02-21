@@ -32,4 +32,22 @@ public class AlmacenDeObrasTest {
       
         assertEquals(expected, AlmacenDeObras.etiqueta(1));
     }
+
+    @Test
+    void registrarUnaPinturaNuevaEstaOk() {
+        int id = 1;
+        String nombre = "Guernica";
+        String autor = "P.Picasso";
+        double precio = 1000;
+        double altura = 5;
+        double peso = 2;
+        int piezas = 5;
+        String descripcion = "Cuadro guerra civil";
+        String material = "Óleo";
+
+        assertEquals(escultura, AlmacenDeObras.registrarUnaNuevaEscultura(id, nombre, autor, precio, altura, peso, piezas, descripcion, material));
+
+    }
+
+
 }
