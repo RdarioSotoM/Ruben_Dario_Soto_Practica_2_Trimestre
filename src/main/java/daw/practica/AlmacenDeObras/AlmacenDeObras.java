@@ -1,5 +1,7 @@
 package daw.practica.AlmacenDeObras;
 
+import java.util.InputMismatchException;
+
 import javax.sound.sampled.SourceDataLine;
 
 import daw.practica.Administrador;
@@ -253,9 +255,20 @@ public class AlmacenDeObras {
     }
 
     public static int selectorDeID() {
-        System.out.println("Escriba el ID de la obra que desea visualizar.");
-        int id = Administrador.consola.nextInt();
+        int id = -1;
+        while (id < 0) {
+            try {
+                System.out.println("Escriba el ID de la obra que desea visualizar.");
+                id = Administrador.consola.nextInt();
+                return id;
+            } catch (InputMismatchException ex) {
+                System.out.println("Debe ingresar un número entero.");
+                Administrador.consola.nextLine();
+                continue;
+            }
+        }
         return id;
+
     }
 
     public static String visualizaObras(int id) {
@@ -266,30 +279,7 @@ public class AlmacenDeObras {
         }
         return null;
     }
-/* 
-    public static void precioDeVenta(int id) {
 
-        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
-            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
-                System.out.println("Nombre: " +
-                        AlmacenDeObras.getObrasTotales()[i].getNombre());
-                System.out.println("Altura (m): " +
-                        AlmacenDeObras.getObrasTotales()[i].getAltura());
-                System.out.println("Peso (t) " +
-                        AlmacenDeObras.getObrasTotales()[i].getPeso());
-                System.out.println("Número de piezas: " +
-                        AlmacenDeObras.getObrasTotales()[i].getPiezas());
-                System.out.println("Precio (€) " +
-                        AlmacenDeObras.getObrasTotales()[i].getPrecio());
-                System.out.println("Comisión de la galería: " +
-                        Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
-
-                importefinal(id, sumaDeImportes(importePorPeso(id), importePorAltura(id), importePorPiezas(id)));
-            }
-        }
-
-    }
-*/
     public static double importePorPeso(int id) {
         double importePeso = 0;
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
@@ -388,88 +378,29 @@ public class AlmacenDeObras {
         return importeTotal;
     }
 
-    
-      public static void precioDeVenta(int id) {
-      final double COMISION_DE_LA_GALERIA = 0.25;
-      
-      for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
-      if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
-      double precioDeVentafinal = AlmacenDeObras.getObrasTotales()[i].getPrecio()
-      + (AlmacenDeObras.getObrasTotales()[i].getPrecio() *
-      COMISION_DE_LA_GALERIA);
-      System.out.println("Nombre: " +
-      AlmacenDeObras.getObrasTotales()[i].getNombre());
-      System.out.println("Altura (m): " +
-      AlmacenDeObras.getObrasTotales()[i].getAltura());
-      System.out.println("Peso (t) " +
-      AlmacenDeObras.getObrasTotales()[i].getPeso());
-      System.out.println("Número de piezas: " +
-      AlmacenDeObras.getObrasTotales()[i].getPiezas());
-      System.out.println("Precio (€) " +
-      AlmacenDeObras.getObrasTotales()[i].getPrecio());
-      System.out.println("Comisión de la galería: " +
-      Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
-      
-      if (AlmacenDeObras.getObrasTotales()[i].getPeso() > 1) {
-      precioDeVentafinal += 100;
-      System.out.println("Importe por peso: " +
-      Metodos_Y_Finals.COMISION_PESO_MAX);
-      } else {
-      precioDeVentafinal += 20;
-      System.out.println("Importe por peso: " +
-      Metodos_Y_Finals.COMISION_PESO_MIN);
-      }
-     if (AlmacenDeObras.getObrasTotales()[i].getAltura() > 2) {
-      precioDeVentafinal += 100;
-      System.out.println("Importe por altura: " +
-      Metodos_Y_Finals.COMISION_ALTURA_MAX);
-      } else {
-      precioDeVentafinal += 20;
-      System.out.println("Importe por altura: " +
-      Metodos_Y_Finals.COMISION_ALTURA_MIN);
-      }
-      if (AlmacenDeObras.getObrasTotales()[i].getPiezas() > 2) {
-      precioDeVentafinal = precioDeVentafinal
-      + ((AlmacenDeObras.getObrasTotales()[i].getPiezas() - 2) * 10);
-      for (int j = 3; j <= AlmacenDeObras.getObrasTotales()[i].getPiezas(); j++) {
-      System.out.println(
-      "Importe adicional - Pieza " + j + " (euros): " +
-      Metodos_Y_Finals.PIEZA_ADICIONAL);
-      }
-      }
-      
-      if (AlmacenDeObras.getObrasTotales()[i] instanceof Pintura) {
-      Pintura pinturatemp = (Pintura) AlmacenDeObras.getObrasTotales()[i];
-      
-      System.out.println("Precio de venta (euros): " + precioDeVentafinal);
-      precioDeVentafinal = precioDeVentafinal
-      - (precioDeVentafinal *
-      pinturatemp.getDescuento());
-      System.out.println("Descuento: (10% óleo (euros))"
-      + precioDeVentafinal *
-      pinturatemp.getDescuento());
-      } else {
-      Escultura esculturatemp = (Escultura) AlmacenDeObras.getObrasTotales()[i];
-      System.out.println("Precio de venta (euros): " + precioDeVentafinal);
-      precioDeVentafinal = precioDeVentafinal
-      - (precioDeVentafinal *
-      esculturatemp.getDescuento());
-      System.out.println("Descuento: (20% escultura (euros))"
-      + precioDeVentafinal *
-      esculturatemp.getDescuento());
-      precioDeVentafinal += esculturatemp.getManipulacion();
-      }
-      
-      precioDeVentafinal = precioDeVentafinal * 0.99;
-      
-      System.out.println("El precio final de esta obra es de " + precioDeVentafinal
-      + " dólares.");
-      }
-      System.out.println(" ");
-      }
-      
-      }
-     
+    public static void precioDeVenta(int id) {
+
+        for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
+            if (AlmacenDeObras.getObrasTotales()[i].getId() == id) {
+                System.out.println("Nombre: " +
+                        AlmacenDeObras.getObrasTotales()[i].getNombre());
+                System.out.println("Altura (m): " +
+                        AlmacenDeObras.getObrasTotales()[i].getAltura());
+                System.out.println("Peso (t) " +
+                        AlmacenDeObras.getObrasTotales()[i].getPeso());
+                System.out.println("Número de piezas: " +
+                        AlmacenDeObras.getObrasTotales()[i].getPiezas());
+                System.out.println("Precio (€) " +
+                        AlmacenDeObras.getObrasTotales()[i].getPrecio());
+                System.out.println("Comisión de la galería: " +
+                        Metodos_Y_Finals.COMISION_DE_LA_GALERIA);
+
+                importefinal(id, sumaDeImportes(importePorPeso(id), importePorAltura(id), importePorPiezas(id)));
+            }
+        }
+
+    }
+
     public static String etiqueta(int id) {
 
         for (int i = 0; i < AlmacenDeObras.getObrasTotales().length; i++) {
